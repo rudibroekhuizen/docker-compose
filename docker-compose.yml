@@ -31,6 +31,10 @@ services:
     image: athieriot/metricbeat
     #restart: unless-stopped
     #pid: host
+    networks:
+      - esnet
+    links:
+      - elasticsearch
     volumes:
       - ./metricbeat/metricbeat.yml:/metricbeat/metricbeat.yml
     depends_on:
