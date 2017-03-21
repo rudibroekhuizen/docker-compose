@@ -31,7 +31,6 @@ services:
     image: athieriot/metricbeat
     #restart: unless-stopped
     pid: host
-    network_mode: host
     networks:
       - esnet
     links:
