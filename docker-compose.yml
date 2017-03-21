@@ -30,17 +30,23 @@ services:
   metricbeat:
     image: athieriot/metricbeat
     #restart: unless-stopped
-    #pid: host
+    pid: host
+    network_mode: host
     networks:
       - esnet
     links:
       - elasticsearch
     volumes:
+      - /proc:/hostfs/proc:ro
+      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+      - /:/hostfs:ro
       - ./metricbeat/metricbeat.yml:/metricbeat/metricbeat.yml
     depends_on:
       - elasticsearch
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
+    command:
+      - "-system.hostfs=/hostfs"
 
 volumes:
   esdata1:
