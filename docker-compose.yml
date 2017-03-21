@@ -27,6 +27,16 @@ services:
       - esnet
     cap_add:
       - IPC_LOCK
+  metricbeat:
+    image: athieriot/metricbeat
+    #restart: unless-stopped
+    #pid: host
+    volumes:
+      - ./metricbeat/metricbeat.yml:/metricbeat/metricbeat.yml
+    depends_on:
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
 
 volumes:
   esdata1:
