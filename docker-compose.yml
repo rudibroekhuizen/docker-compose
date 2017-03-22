@@ -7,6 +7,7 @@ services:
     #  - ./kibana/.kibana.yml:/usr/share/kibana/config/kibana.yml
     environment:
       ELASTICSEARCH_URL: http://elasticsearch:9200
+      XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED: "false"
       XPACK_MONITORING_ENABLED: "false"
       XPACK_SECURITY_ENABLED: "false"
     ports:
