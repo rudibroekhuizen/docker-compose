@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  db:
+    image: postgres:9.6
+    volumes:
+      - ./db/pgdata:/pgdata
+    ports:
+      - "5432"
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - PGDATA=/pgdata
