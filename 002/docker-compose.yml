@@ -2,7 +2,8 @@ version: '2'
 
 services:
   db:
-    image: postgres:9.6
+    #image: postgres:9.6
+    build: ./db
     volumes:
       - ./db/pgdata:/pgdata
     ports:
