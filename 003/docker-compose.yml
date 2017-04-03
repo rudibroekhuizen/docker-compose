@@ -4,6 +4,6 @@ services:
   pgadmin:
     build: ./pgadmin
     volumes:
-      - "/home/${USER}/.pgadmin:/home/pgadmin"
+      - "~/.pgadmin:/home/pgadmin"
     ports:
       - "5050"
