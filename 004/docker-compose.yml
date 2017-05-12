@@ -1,6 +1,12 @@
 version: '2'
 
 services:
-  ubuntu:
+  ubuntu_a:
     build: ./ubuntu
     tty: true
+
+  ubuntu_b:
+    build: ./ubuntu
+    tty: true
+    links:
+      - ubuntu_a
