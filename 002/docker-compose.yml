@@ -4,7 +4,7 @@ services:
   master:
     build: ./db
     volumes:
-      - ./db/pgdata:/pgdata
+      - ./pgdata_master:/pgdata
     ports:
         - "15432:5432"
     environment:
@@ -15,7 +15,7 @@ services:
   slave:
     build: ./db
     volumes:
-      - ./db/pgdata:/pgdata
+      - ./pgdata_slave:/pgdata
     ports:
         - "25432:5432"
     environment:
