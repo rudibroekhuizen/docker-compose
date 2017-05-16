@@ -1,7 +1,7 @@
 FROM ubuntu
 
 # Dependencies to be able to run Puppet base module
-RUN apt-get update && apt-get install sudo vim curl wget dialog apt-transport-https rubygems -y
+RUN apt-get update && apt-get install sudo vim curl wget dialog apt-utils apt-transport-https rubygems -y
 
 # Set the locale
 RUN locale-gen en_US.UTF-8  
