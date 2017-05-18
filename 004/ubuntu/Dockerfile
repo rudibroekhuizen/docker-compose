@@ -1,8 +1,7 @@
 FROM ubuntu
 
 # Dependencies to be able to run Puppet base module
-RUN echo 'APT::Install-Recommends 0;' >> /etc/apt/apt.conf.d/01norecommends \
-&& apt-get update \
+RUN apt-get update \
 && apt-get install -y sudo vim.tiny curl wget dialog apt-utils apt-transport-https rubygems net-tools iputils-ping
 
 # Set the locale
