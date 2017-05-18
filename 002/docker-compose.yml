@@ -2,7 +2,7 @@ version: '2'
 
 services:
   master:
-    build: ./db
+    build: ./postgres
     volumes:
       - ./pgdata_master:/pgdata
     ports:
@@ -13,7 +13,7 @@ services:
       - PGDATA=/pgdata
 
   slave:
-    build: ./db
+    build: ./postgres
     volumes:
       - ./pgdata_slave:/pgdata
     ports:
