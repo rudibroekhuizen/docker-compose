@@ -48,9 +48,9 @@ services:
       - elasticsearch
   
   metricbeat:
-    image: athieriot/metricbeat
+    build: ./metricbeat
     #restart: unless-stopped
-    pid: host
+    #pid: host
     networks:
       - esnet
     links:
