@@ -26,7 +26,7 @@ services:
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
-      - elk
+      - esnet
     depends_on:
       - elasticsearch
 
