@@ -16,6 +16,20 @@ services:
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
 
+  logstash:
+    build: logstash/
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+    ports:
+      - "5000:5000"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
   kibana:
     image: docker.elastic.co/kibana/kibana:5.2.2
     #volumes:
