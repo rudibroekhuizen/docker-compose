@@ -13,10 +13,12 @@ services:
     depends_on:
       - elasticsearch
 
-#  kibana:
-#    extends:
-#      file: ./kibana/docker-compose.yml
-#      service: kibana
+  kibana:
+    extends:
+      file: ./kibana/docker-compose.yml
+      service: kibana
+    depends_on:
+      - elasticsearch
 
 volumes:
   esdata1:
