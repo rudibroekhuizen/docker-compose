@@ -15,8 +15,8 @@ services:
       - 5601:5601
     networks:
       - esnet
-    links:
-      - elasticsearch
+    #links:
+    #  - elasticsearch
 
 networks:
   esnet:
