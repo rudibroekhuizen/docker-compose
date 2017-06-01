@@ -26,6 +26,8 @@ services:
       service: master
     links:
       - logstash
+    networks:
+      - esnet
 
 volumes:
   esdata1:
