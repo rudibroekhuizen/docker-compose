@@ -2,13 +2,13 @@ version: '2'
 
 services:
   metricbeat:
-    build: ./metricbeat
+    build: ./
     networks:
       - esnet
     links:
       - elasticsearch
     volumes:
-      - ./metricbeat/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
+      - ./config/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
       - ./conf:/usr/share/metricbeat/conf
       - /proc:/hostfs/proc:ro
       - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
