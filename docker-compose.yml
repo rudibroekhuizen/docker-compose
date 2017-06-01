@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  elasticsearch:
+    extends:
+      file: ./elasticsearch/docker-compose.yml
+      service: elasticsearch
+
+volumes:
+  esdata1:
+    driver: local
+
+networks:
+  esnet:
+    driver: bridge
