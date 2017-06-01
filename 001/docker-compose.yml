@@ -51,8 +51,8 @@ services:
     build: ./metricbeat
     networks:
       - esnet
-    links:
-      - elasticsearch
+    #links:
+    #  - elasticsearch
     volumes:
       - ./metricbeat/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
       - ./conf:/usr/share/metricbeat/conf
