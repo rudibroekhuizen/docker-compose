@@ -23,7 +23,7 @@ services:
   postgres:
     extends:
       file: ./postgres/docker-compose.yml
-      service: postgres
+      service: master
     links:
       - logstash
 
