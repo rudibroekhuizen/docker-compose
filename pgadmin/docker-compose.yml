@@ -2,7 +2,7 @@ version: '2'
 
 services:
   pgadmin:
-    build: ./pgadmin
+    build: ./
     volumes:
       - "~/.pgadmin:/home/pgadmin"
     ports:
