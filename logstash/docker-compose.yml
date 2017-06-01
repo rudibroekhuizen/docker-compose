@@ -2,7 +2,7 @@ version: '2'
 
 services:
   logstash:
-    build: ./logstash
+    build: ./
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/pipeline:/usr/share/logstash/pipeline
