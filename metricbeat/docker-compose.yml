@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  metricbeat:
+    build: ./metricbeat
+    networks:
+      - esnet
+    links:
+      - elasticsearch
+    volumes:
+      - ./metricbeat/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
+      - ./conf:/usr/share/metricbeat/conf
+      - /proc:/hostfs/proc:ro
+      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+      - /:/hostfs:ro
+    #depends_on:
+    #  - elasticsearch
+    environment:
+      - xpack.security.enabled=false
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+
+networks:
+  esnet:
+    driver: bridge
