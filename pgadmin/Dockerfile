@@ -1,3 +1,3 @@
 FROM nphung/pgadmin
 
-EXPOSE 5050
+#EXPOSE 5050
