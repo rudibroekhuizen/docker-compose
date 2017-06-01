@@ -20,6 +20,11 @@ services:
     depends_on:
       - elasticsearch
 
+  ubuntu:
+    extends:
+      file: ./ubuntu/docker-compose.yml
+      service: ubuntu_a
+
 volumes:
   esdata1:
     driver: local
