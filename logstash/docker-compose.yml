@@ -12,8 +12,8 @@ services:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
       - esnet
-    depends_on:
-      - elasticsearch
+    #depends_on:
+    #  - elasticsearch
       
 networks:
   esnet:
