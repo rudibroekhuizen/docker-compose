@@ -10,6 +10,8 @@ services:
     extends:
       file: ./logstash/docker-compose.yml
       service: logstash
+    volumes:
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
     depends_on:
       - elasticsearch
 
