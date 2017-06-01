@@ -20,10 +20,12 @@ services:
     depends_on:
       - elasticsearch
 
-  ubuntu:
+  postgres:
     extends:
-      file: ./ubuntu/docker-compose.yml
-      service: ubuntu_a
+      file: ./postgres/docker-compose.yml
+      service: postgres
+    links:
+      - logstash
 
 volumes:
   esdata1:
