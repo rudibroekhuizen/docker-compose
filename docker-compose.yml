@@ -23,7 +23,7 @@ services:
   ubuntu:
     extends:
       file: ./ubuntu/docker-compose.yml
-      service: ubuntu_a
+      service: ubuntu
     links:
       - logstash
     networks:
