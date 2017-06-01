@@ -6,6 +6,18 @@ services:
       file: ./elasticsearch/docker-compose.yml
       service: elasticsearch
 
+  logstash:
+    extends:
+      file: ./logstash/docker-compose.yml
+      service: logstash
+    depends_on:
+      - elasticsearch
+
+#  kibana:
+#    extends:
+#      file: ./kibana/docker-compose.yml
+#      service: kibana
+
 volumes:
   esdata1:
     driver: local
