@@ -30,6 +30,8 @@ services:
       - logstash
     networks:
       - esnet
+    ports:
+      - "80:80"
 
 volumes:
   esdata1:
