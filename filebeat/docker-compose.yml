@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  filebeat:
+    build: ./
+      volumes:
+        - ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
+        - ./filebeat/data:/mnt/data
+    networks:
+      - esnet
+    #depends_on:
+    #  - elasticsearch
+    #  - logstash
+
+networks:
+  esnet:
+    driver: bridge
