@@ -1,8 +1,8 @@
 filebeat.prospectors:
   pg_log:
     paths:
-      - '/var/log/postgresql/*.log'
-    doc_type: 'pg_log'
+      - '/mnt/data/*.log'
+    doc_type: 'syslog'
 
 output.logstash:
    hosts: ['logstash:5044']
