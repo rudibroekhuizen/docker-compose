@@ -1,0 +1,8 @@
+filebeat.prospectors:
+  pg_log:
+    paths:
+      - '/mnt/data/*.log'
+    doc_type: 'syslog'
+
+output.logstash:
+   hosts: ['logstash:5044']
