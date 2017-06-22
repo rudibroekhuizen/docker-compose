@@ -4,7 +4,7 @@ services:
   filebeat:
     build: ./
     volumes:
-      - ./config/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       - /tmp/data:/mnt/data
     networks:
       - esnet
