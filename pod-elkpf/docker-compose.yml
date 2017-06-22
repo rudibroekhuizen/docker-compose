@@ -37,7 +37,7 @@ services:
       file: ../postgres/docker-compose.yml
       service: master
     volumes:
-      - /mnt/filebeat:/var/log/postgresql
+      - /mnt/filebeat:/pgdata/pg_log
 
 #  ubuntu:
 #    extends:
