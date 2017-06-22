@@ -10,6 +10,9 @@ services:
     extends:
       file: ../filebeat/docker-compose.yml
       service: filebeat
+    volumes:
+      - ./config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /tmp/data:/mnt/data
     depends_on:
       - logstash
 
