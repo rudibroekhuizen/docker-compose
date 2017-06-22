@@ -29,6 +29,11 @@ services:
     depends_on:
       - elasticsearch
 
+  postgres:
+    extends:
+      file: ../postgres/docker-compose.yml
+      service: master
+
 #  ubuntu:
 #    extends:
 #      file: ../ubuntu/docker-compose.yml
