@@ -37,6 +37,7 @@ services:
       file: ../postgres/docker-compose.yml
       service: master
     volumes:
+      - ./postgres/include_dir:/pgdata/include_dir
       - /mnt/docker:/pgdata/pg_log
 
 volumes:
