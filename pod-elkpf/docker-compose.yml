@@ -38,16 +38,6 @@ services:
       service: master
     volumes:
       - /mnt/docker:/pgdata/pg_log
-#  ubuntu:
-#    extends:
-#      file: ../ubuntu/docker-compose.yml
-#      service: ubuntu
-#    links:
-#      - logstash
-#    networks:
-#      - esnet
-#    ports:
-#      - "80:80"
 
 volumes:
   esdata1:
