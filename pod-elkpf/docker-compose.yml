@@ -37,6 +37,7 @@ services:
       file: ../postgres/docker-compose.yml
       service: master
     volumes:
+      - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./postgres/conf.d:/pgdata/conf.d
       - /mnt/docker:/pgdata/pg_log
 
