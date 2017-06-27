@@ -12,7 +12,7 @@ services:
       service: filebeat
     volumes:
       - ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - /mnt/docker:/mnt/data:rw
+      - /docker/share:/mnt/data:rw
     depends_on:
       - logstash
 
@@ -37,8 +37,8 @@ services:
       file: ../postgres/docker-compose.yml
       service: master
     volumes:
-      - ./postgres/conf.d:/pgdata/conf.d
-      - /mnt/docker:/pgdata/pg_log
+      - ./postgres/conf.d:/conf.d
+      - /docker/share:/pg_log
 
 volumes:
   esdata1:
