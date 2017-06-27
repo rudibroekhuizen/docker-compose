@@ -37,7 +37,6 @@ services:
       file: ../postgres/docker-compose.yml
       service: master
     volumes:
-      - ./postgres/conf.d:/conf.d
       - /docker/share:/pg_log
 
 volumes:
