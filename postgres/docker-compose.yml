@@ -6,6 +6,7 @@ services:
     volumes:
       - /docker/pgdata:/pgdata
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./conf.d:/conf.d
     ports:
         - "15432:5432"
     environment:
