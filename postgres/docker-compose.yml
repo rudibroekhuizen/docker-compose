@@ -4,23 +4,10 @@ services:
   master:
     build: ./
     volumes:
-      - ./pgdata_master:/pgdata
+      - /docker/pgdata:/pgdata
     ports:
         - "15432:5432"
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=docker
       - PGDATA=/pgdata
-
-  slave:
-    build: ./
-    volumes:
-      - ./pgdata_slave:/pgdata
-    ports:
-        - "25432:5432"
-    environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
-      - PGDATA=/pgdata
-    links:
-      - master
