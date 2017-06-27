@@ -37,7 +37,7 @@ services:
       file: ../postgres/docker-compose.yml
       service: master
     volumes:
-      - /docker/share:/pg_log
+      - /docker/share:pg_log
 
 volumes:
   esdata1:
