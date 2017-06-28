@@ -38,6 +38,8 @@ services:
       service: master
     volumes:
       - /docker/share:/tmp
+      - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./postgres/conf.d:/conf.d
 
 volumes:
   esdata1:
