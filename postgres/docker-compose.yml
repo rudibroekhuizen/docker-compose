@@ -26,5 +26,5 @@ services:
       - master
 
 volumes:
-  pgdata_master
-  pgdata_slave
+  pgdata_master:
+  pgdata_slave:
