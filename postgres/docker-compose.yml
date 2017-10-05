@@ -8,8 +8,8 @@ services:
     ports:
         - "5432:5432"
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
       - PGDATA=/pgdata
 
   slave:
@@ -19,8 +19,8 @@ services:
     ports:
         - "5433:5433"
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
       - PGDATA=/pgdata
     links:
       - master
