@@ -17,7 +17,7 @@ services:
     volumes:
       - pgdata_slave:/pgdata
     ports:
-        - "5433:5433"
+        - "5433:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -28,3 +28,8 @@ services:
 volumes:
   pgdata_master:
   pgdata_slave:
+
+networks:
+  default:
+    external:
+      name: dockerpostgresplus_default
