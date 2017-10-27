@@ -5,29 +5,39 @@ services:
     build: ./
     volumes:
       - pgdata_master:/pgdata
+      - pglog:/tmp
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./conf.d:/conf.d
     ports:
         - "5432:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - PGDATA=/pgdata
+    env_file:
+      - ./master.env
 
   slave:
     build: ./
     volumes:
       - pgdata_slave:/pgdata
+      - pglog:/tmp
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./conf.d:/conf.d
     ports:
         - "5433:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - PGDATA=/pgdata
+      - REPLICATE_FROM=slave
     links:
       - master
 
 volumes:
   pgdata_master:
   pgdata_slave:
+  pglog:
 
 networks:
   default:
