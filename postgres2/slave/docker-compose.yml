@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  slave:
+    build: ./
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./conf.d:/conf.d
+      - pgdata_slave:/pgdata
+      - pglog:/tmp
+    ports:
+        - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/pgdata
+
+#volumes:
+#  pgdata_slave:
