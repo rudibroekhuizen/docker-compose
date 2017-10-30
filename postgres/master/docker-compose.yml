@@ -6,7 +6,7 @@ services:
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./conf.d:/conf.d
-      - pgdata_master:/pgdata
+      - pgdata:/pgdata
       - pglog:/tmp
     ports:
         - "5432:5432"
@@ -16,12 +16,13 @@ services:
 #      - POSTGRES_USER=postgres
 #      - POSTGRES_PASSWORD=postgres
 #      - PGDATA=/pgdata
+    networks:
+      - pgnet
 
 networks:
-  default:
-    external:
-      name: dockerpostgresplus_default
+  pgnet:
+    external: true
 
 volumes:
-  pgdata_master:
+  pgdata:
   pglog:
