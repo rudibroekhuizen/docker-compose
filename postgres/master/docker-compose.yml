@@ -10,10 +10,18 @@ services:
       - pglog:/tmp
     ports:
         - "5432:5432"
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - PGDATA=/pgdata
+    env_file:
+     - ./../env_file
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+#      - PGDATA=/pgdata
+
+networks:
+  default:
+    external:
+      name: dockerpostgresplus_default
 
 volumes:
   pgdata_master:
+  pglog:

@@ -8,12 +8,20 @@ services:
       - ./conf.d:/conf.d
       - pgdata_slave:/pgdata
       - pglog:/tmp
-    ports:
-        - "5433:5432"
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - PGDATA=/pgdata
+#    ports:
+#      - "5433:5432"
+    env_file:
+     - ./../env_file
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+#      - PGDATA=/pgdata
 
-#volumes:
-#  pgdata_slave:
+networks:
+  default:
+    external:
+      name: dockerpostgresplus_default
+
+volumes:
+  pgdata_slave:
+  pglog:
