@@ -1,0 +1,7 @@
+PGDATA=/pgdata
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+REPLICATION_USER=replicator
+REPLICATION_PASSWORD=postgres
+POSTGRES_MASTER=postgres
+
