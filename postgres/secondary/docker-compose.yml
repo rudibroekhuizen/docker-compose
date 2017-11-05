@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  secondary:
+    build: ./..
+    volumes:
+      - ./../docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./../conf.d:/conf.d
+      - ./../scripts:/scripts
+      - pgdata:/pgdata
+      - pglog:/tmp
+    env_file:
+     - ./../env_file
+    networks:
+      - pgnet
+    ports:
+      - "5433:5432"
+
+networks:
+  pgnet:
+    external: true
+
+volumes:
+  pgdata:
+  pglog:
