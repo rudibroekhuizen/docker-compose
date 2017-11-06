@@ -1,4 +1,5 @@
 #/bin/bash
+
 set -e
 
 if [ $ROLE = "slave" ]; then
@@ -9,6 +10,7 @@ if [ $ROLE = "slave" ]; then
   # Make sure standby's data directory is empty
   rm -r "$PGDATA"/*
 
+  # Pull pgdata files
   pg_basebackup \
     --write-recovery-conf \
     --pgdata=$PGDATA \
@@ -19,11 +21,7 @@ if [ $ROLE = "slave" ]; then
     --progress \
     --verbose
 
+  # Start Postgres
   pg_ctl -D "$PGDATA" -w start
 
-#elif [ $ROLE = "master" ]; then
-
-#  echo $ROLE > /tmp/aap
-
 fi
-#sudo -u postgres /usr/lib/postgresql/9.6/bin/pg_ctl -D "$PGDATA" promote
