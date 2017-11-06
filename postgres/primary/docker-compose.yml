@@ -9,6 +9,8 @@ services:
       - ./../scripts:/scripts
       - pgdata:/pgdata
       - pglog:/tmp
+    ports:
+        - "5432:5432"
     env_file:
      - ./../env_file
     networks:
