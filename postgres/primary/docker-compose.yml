@@ -14,7 +14,7 @@ services:
     networks:
       - pgnet
     environment:
-      - ROLE=slave
+      - ROLE=''
 
 networks:
   pgnet:
