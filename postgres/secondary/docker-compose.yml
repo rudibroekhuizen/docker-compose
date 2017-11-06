@@ -2,10 +2,11 @@ version: '2'
 
 services:
   secondary:
-    build: ./
+    build: ./..
     volumes:
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-      - ./conf.d:/conf.d
+      - ./../docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./../conf.d:/conf.d
+      - ./../scripts:/scripts
       - pgdata:/pgdata
       - pglog:/tmp
     ports:
@@ -14,6 +15,9 @@ services:
      - ./../env_file
     networks:
       - pgnet
+    environment:
+      - ROLE=slave
+      - POSTGRES_MASTER=primary
 
 networks:
   pgnet:
