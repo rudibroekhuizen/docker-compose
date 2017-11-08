@@ -16,7 +16,7 @@ services:
     networks:
       - pgnet
     environment:
-      - ROLE=slave
+      - ROLE=''
       - POSTGRES_MASTER=secondary
 
 networks:
