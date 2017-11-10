@@ -10,4 +10,5 @@ echo "host replication $REPLICATION_USER 0.0.0.0/0 trust" >> "$PGDATA/pg_hba.con
 # Create replication user
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
      CREATE ROLE $REPLICATION_USER WITH REPLICATION PASSWORD '$REPLICATION_PASSWORD' LOGIN;
+     CREATE ROLE analytics WITH PASSWORD 'postgres' LOGIN;
 EOSQL

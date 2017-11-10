@@ -17,7 +17,7 @@ services:
       - pgnet
     environment:
       - ROLE=''
-      - POSTGRES_MASTER=secondary
+      - POSTGRES_MASTER=postgres
 
 networks:
   pgnet:
