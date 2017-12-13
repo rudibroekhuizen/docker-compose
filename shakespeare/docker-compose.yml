@@ -12,4 +12,4 @@ go:
   ports:
     - "8080:80"
   environment:
-    - DATABASE_URL="postgresql://postgres:postgres@postgres/postgres"
+    - DATABASE_URL="postgresql://postgres:postgres@db/postgres"
