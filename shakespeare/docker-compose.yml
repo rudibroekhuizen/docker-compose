@@ -1,15 +1,18 @@
-postgres:
-  image: postgres:latest
-  ports:
-    - "5432"
-  environment:
-    - POSTGRES_PASSWORD="postgres"
+version: '2'
 
-go:
-  build: .
-  links:
-    - postgres:db
-  ports:
-    - "8080:80"
-  environment:
-    - DATABASE_URL="postgresql://postgres:postgres@db/postgres"
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432"
+    environment:
+      - POSTGRES_PASSWORD="postgres"
+
+  go:
+    build: .
+    links:
+      - postgres:db
+    ports:
+      - "8080:80"
+    environment:
+      - DATABASE_URL="postgresql://postgres:postgres@db/postgres?sslmode=disable"
