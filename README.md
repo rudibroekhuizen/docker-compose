@@ -1,2 +1,2 @@
 # docker-compose
-Various docker-compose configurations
+Various docker-compose configurations.
