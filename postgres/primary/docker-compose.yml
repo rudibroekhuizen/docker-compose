@@ -7,7 +7,7 @@ services:
       - ./../docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./../conf.d:/conf.d
       - ./../scripts:/scripts
-      - pgdata:/pgdata
+      - pgdata:/var/lib/postgresql/data
       - pglog:/tmp
     ports:
       - "5432:5432"
