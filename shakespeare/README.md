@@ -14,5 +14,5 @@ psql -f /share/data.sql
 ```
 
 ```bash
-[http://localhost]
+<http://localhost>
 ```
