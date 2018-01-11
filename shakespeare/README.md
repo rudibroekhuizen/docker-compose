@@ -13,4 +13,4 @@ su postgres
 psql -f /share/data.sql
 ```
 
-[localhost] (http://localhost)
+http://localhost
