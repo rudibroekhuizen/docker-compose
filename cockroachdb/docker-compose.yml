@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+
+  roach1:
+    container_name: "roach1"
+    image: cockroachdb/cockroach:v1.1.4
+    command: start --insecure
+    restart: always
+    expose:
+      - "8080"
+      - "26257"
+    ports:
+      - 8080:8080
+      - 26257:26257
+    networks:
+        - roachnet
+    volumes:
+      - roach1:/cockroach/cockroach-data
+
+  roach2:
+    container_name: "roach2"
+    image: cockroachdb/cockroach:v1.1.4
+    command: start --insecure --join=roach-one
+    restart: always
+    networks:
+        - roachnet
+    volumes:
+      - roach2:/cockroach/cockroach-data
+
+  roach3:
+    container_name: "roach3"
+    image: cockroachdb/cockroach:v1.1.4
+    command: start --insecure --join=roach-one
+    restart: always
+    networks:
+        - roachnet
+    volumes:
+      - roach3:/cockroach/cockroach-data
+
+  roach4:
+    container_name: "roach4"
+    image: cockroachdb/cockroach:v1.1.4
+    command: start --insecure --join=roach-one
+    restart: always
+    networks:
+        - roachnet
+    volumes:
+      - roach4:/cockroach/cockroach-data
+
+volumes:
+  roach1:
+  roach2:
+  roach3:
+  roach4:
+
+networks:
+  roachnet:
