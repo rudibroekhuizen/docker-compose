@@ -6,7 +6,7 @@ services:
     container_name: "roach1"
     image: cockroachdb/cockroach:v1.1.4
     command: start --insecure
-    restart: always
+    #restart: always
     expose:
       - "8080"
       - "26257"
@@ -22,7 +22,7 @@ services:
     container_name: "roach2"
     image: cockroachdb/cockroach:v1.1.4
     command: start --insecure --join=roach-one
-    restart: always
+    #restart: always
     networks:
         - roachnet
     volumes:
@@ -32,7 +32,7 @@ services:
     container_name: "roach3"
     image: cockroachdb/cockroach:v1.1.4
     command: start --insecure --join=roach-one
-    restart: always
+    #restart: always
     networks:
         - roachnet
     volumes:
@@ -42,7 +42,7 @@ services:
     container_name: "roach4"
     image: cockroachdb/cockroach:v1.1.4
     command: start --insecure --join=roach-one
-    restart: always
+    #restart: always
     networks:
         - roachnet
     volumes:
