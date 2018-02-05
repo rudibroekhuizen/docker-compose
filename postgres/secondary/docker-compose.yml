@@ -17,7 +17,6 @@ services:
       - pgnet
     environment:
       - ROLE=slave
-      - POSTGRES_MASTER=primary
 
 networks:
   pgnet:
