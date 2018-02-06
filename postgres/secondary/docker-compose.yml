@@ -3,6 +3,7 @@ version: '3'
 services:
   secondary:
     build: ./..
+    container_name: secondary
     volumes:
       - ./../docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./../conf.d:/conf.d
