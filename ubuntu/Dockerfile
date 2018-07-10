@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:14.04
 
 # Dependencies to be able to run Puppet base module
 RUN apt-get update \
