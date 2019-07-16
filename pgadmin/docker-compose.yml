@@ -1,9 +1,10 @@
-version: '2'
+version: '3.7'
 
 services:
   pgadmin:
-    build: ./
-    volumes:
-      - "~/.pgadmin:/home/pgadmin"
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
     ports:
-      - 5050:5050
+      - "80:5050"
