@@ -3,12 +3,16 @@ version: '3.7'
 services:
   pgadmin:
     image: dpage/pgadmin4:latest
+    network_mode: "host"
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
-    expose:
-      - "80"
-    ports:
-      - "5050:80"
-    networks:
-      - default
+
+
+# when not using network_mode host:
+#    expose:
+#      - "80"
+#    ports:
+#      - "5050:80"
+#    networks:
+#      - default
