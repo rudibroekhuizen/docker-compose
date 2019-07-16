@@ -1,12 +1,21 @@
 version: '3.7'
   
+x-logging:
+  &default-logging
+  options:
+    max-size: '10m'
+    max-file: '5'
+  driver: json-file
+
 services:
   pgadmin:
     image: dpage/pgadmin4:latest
+    restart: unless-stopped
     network_mode: "host"
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+    logging: *default-logging
 
 
 # when not using network_mode host:
