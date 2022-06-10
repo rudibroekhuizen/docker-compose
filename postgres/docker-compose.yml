@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  primary:
+    build: ./
+    volumes:
+      - ./primary/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./conf.d:/conf.d
+      - ./scripts:/scripts
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./env_file
+    environment:
+      - ROLE=''
+
+  secondary:
+    build: ./
+    volumes:
+      - ./secondary/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./conf.d:/conf.d
+      - ./scripts:/scripts
+    ports:
+      - "5433:5432"
+    env_file:
+     - ./env_file
+    environment:
+      - ROLE=slave
+
