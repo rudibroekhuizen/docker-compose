@@ -14,7 +14,7 @@ if [ $ROLE = "slave" ]; then
   pg_basebackup \
     --write-recovery-conf \
     --pgdata=$PGDATA \
-    --xlog-method=fetch \
+    --wal-method=fetch \
     --host=$POSTGRES_MASTER \
     --username=$REPLICATION_USER \
     --port=5432 \
